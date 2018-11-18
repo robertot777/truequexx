@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity RespuestaOferta.
+    -->
+    <changeSet id="20181118001115-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="genera_respusta_id"
+                                 baseTableName="respuesta_oferta"
+                                 constraintName="fk_respuesta_oferta_genera_respusta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="respuesta_ofertas_id"
+                                 baseTableName="respuesta_oferta_oferta"
+                                 constraintName="fk_respuesta_oferta_oferta_respuesta_ofertas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="respuesta_oferta"/>
+        <addForeignKeyConstraint baseColumnNames="ofertas_id"
+                                 baseTableName="respuesta_oferta_oferta"
+                                 constraintName="fk_respuesta_oferta_oferta_ofertas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="oferta"/>
+        
+    </changeSet>
+</databaseChangeLog>

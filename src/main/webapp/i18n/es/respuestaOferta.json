@@ -1,0 +1,23 @@
+{
+    "truequepApp": {
+        "respuestaOferta" : {
+            "home": {
+                "title": "Respuesta Ofertas",
+                "createLabel": "Crear nuevo Respuesta Oferta",
+                "createOrEditLabel": "Crear o editar Respuesta Oferta"
+            },
+            "created": "Un nuevo Respuesta Oferta ha sido creado con el identificador {{ param }}",
+            "updated": "Un Respuesta Oferta ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Respuesta Oferta ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Respuesta Oferta {{ id }}?"
+            },
+            "detail": {
+                "title": "Respuesta Oferta"
+            },
+            "aceptar": "Aceptar",
+            "generaRespusta": "Genera Respusta",
+            "oferta": "Oferta"
+        }
+    }
+}

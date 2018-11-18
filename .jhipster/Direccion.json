@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "comuna",
+            "otherEntityName": "comuna",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "direccion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tipo",
+            "otherEntityName": "user",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "direccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adicional",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codigoPostal",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20181118001112",
+    "javadoc": "Entidad de direccion de usuario",
+    "entityTableName": "direccion",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

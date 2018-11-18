@@ -1,0 +1,22 @@
+{
+    "truequepApp": {
+        "comuna" : {
+            "home": {
+                "title": "Comunas",
+                "createLabel": "Crear nuevo Comuna",
+                "createOrEditLabel": "Crear o editar Comuna"
+            },
+            "created": "Un nuevo Comuna ha sido creado con el identificador {{ param }}",
+            "updated": "Un Comuna ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Comuna ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Comuna {{ id }}?"
+            },
+            "detail": {
+                "title": "Comuna"
+            },
+            "nombreComuna": "Nombre Comuna",
+            "region": "Region"
+        }
+    }
+}

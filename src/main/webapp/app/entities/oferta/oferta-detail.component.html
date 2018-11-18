@@ -1,0 +1,42 @@
+
+<div *ngIf="oferta">
+    <h2><span jhiTranslate="truequepApp.oferta.detail.title">Oferta</span> {{oferta.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="truequepApp.oferta.generarOferta">Generar Oferta</span></dt>
+        <dd>
+            <span>{{oferta.generarOferta}}</span>
+        </dd>
+        <dt><span jhiTranslate="truequepApp.oferta.tipoObjeto">Tipo Objeto</span></dt>
+        <dd>
+            <span jhiTranslate="{{'truequepApp.TipoObjeto.' + oferta.tipoObjeto}}">{{oferta.tipoObjeto}}</span>
+        </dd>
+        <dt><span jhiTranslate="truequepApp.oferta.generaOferta">Genera Oferta</span></dt>
+        <dd>
+            <div *ngIf="oferta.generaOferta">
+                <a (click)="openFile(oferta.generaOfertaContentType, oferta.generaOferta)">
+                    <img [src]="'data:' + oferta.generaOfertaContentType + ';base64,' + oferta.generaOferta" style="max-width: 100%;" alt="oferta image"/>
+                </a>
+                {{oferta.generaOfertaContentType}}, {{byteSize(oferta.generaOferta)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="truequepApp.oferta.cliente">Cliente</span></dt>
+        <dd>
+            {{oferta.clienteId}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'oferta/'+ oferta.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

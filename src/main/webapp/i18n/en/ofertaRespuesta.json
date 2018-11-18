@@ -1,0 +1,10 @@
+{
+    "truequepApp": {
+        "OfertaRespuesta" : {
+            "null": "",
+            "ACEPTA": "ACEPTA",
+            "NOACEPTA": "NOACEPTA",
+            "NODISPONIBLE": "NODISPONIBLE"
+        }
+    }
+}

@@ -1,0 +1,97 @@
+
+
+
+/**
+* Entidad de comuna de usuario
+*/
+entity Comuna {
+	nombreComuna String required
+}
+
+/**
+* Entidad de region de usuario
+*/
+entity Region {
+	nombreRegion String required
+}
+
+relationship ManyToOne {
+	Comuna{region} to Region 
+}
+
+/**
+* Entidad de direccion de usuario
+*/
+entity Direccion {
+	direccion String required,
+	numero String required,
+	adicional String,
+	codigoPostal String
+}
+
+relationship OneToOne {
+	Direccion{comuna} to Comuna
+   
+   
+}
+
+
+
+relationship ManyToOne {
+
+	Direccion {Tipo} to User,
+    RespuestaOferta   {generaRespusta} to  User 
+  
+    
+}
+
+entity Valoracion {
+  tipoValoracion TipoValoracion 
+}
+enum TipoValoracion {
+ EXELENTE, BUENA, REGULAR, POCOSERIO, PESIMO
+}
+
+entity Oferta  {
+  
+   generarOferta String required,
+    tipoObjeto TipoObjeto,
+    generaOferta ImageBlob  required
+    
+}
+entity RespuestaOferta  {
+   aceptar OfertaRespuesta required
+    
+}
+enum OfertaRespuesta{
+    ACEPTA, NOACEPTA, NODISPONIBLE
+}
+
+enum TipoObjeto {
+
+  ALIMENTACIONBEBIDAS, ARTEANTIGUEDADES, VEHICULOS, CASAHOGAR, COLECCION, DEPORTES, EDUCACION, IMAGENSONIDO, INFORMATICAELECTRONICA, INMOBILIARIA, JOYERIA, JUEGOSJUGUETES, LIBROSREVISTASCOMICS, MUSICA, ROPACALZADO, SALUDBELLEZA, SERVICIOS, MANOOBRA, TELEFONIA, TIEMPOLIBRE
+  
+
+  
+}
+relationship ManyToOne{
+ Valoracion{nombre} to  User{tipoValoracion} ,
+ Oferta {cliente} to User
+}
+
+
+  relationship ManyToMany {
+     
+ 
+    RespuestaOferta {oferta}   to   Oferta {estadoOferta}
+
+
+ }
+
+dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+service all with serviceImpl
+// Set an angular suffix
+//angularSuffix * with mySuffix

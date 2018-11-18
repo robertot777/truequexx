@@ -1,0 +1,31 @@
+
+<div *ngIf="comuna">
+    <h2><span jhiTranslate="truequepApp.comuna.detail.title">Comuna</span> {{comuna.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="truequepApp.comuna.nombreComuna">Nombre Comuna</span></dt>
+        <dd>
+            <span>{{comuna.nombreComuna}}</span>
+        </dd>
+        <dt><span jhiTranslate="truequepApp.comuna.region">Region</span></dt>
+        <dd>
+            <div *ngIf="comuna.regionId">
+                <a [routerLink]="['/region', comuna.regionId]">{{comuna.regionId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'comuna/'+ comuna.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

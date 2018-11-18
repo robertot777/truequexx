@@ -1,0 +1,71 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDireccionLabel" jhiTranslate="truequepApp.direccion.home.createOrEditLabel">Create or edit a Direccion</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!direccion.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="direccion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.direccion.direccion" for="field_direccion">Direccion</label>
+            <input type="text" class="form-control" name="direccion" id="field_direccion"
+                [(ngModel)]="direccion.direccion" required/>
+            <div [hidden]="!(editForm.controls.direccion?.dirty && editForm.controls.direccion?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.direccion?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.direccion.numero" for="field_numero">Numero</label>
+            <input type="text" class="form-control" name="numero" id="field_numero"
+                [(ngModel)]="direccion.numero" required/>
+            <div [hidden]="!(editForm.controls.numero?.dirty && editForm.controls.numero?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.numero?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.direccion.adicional" for="field_adicional">Adicional</label>
+            <input type="text" class="form-control" name="adicional" id="field_adicional"
+                [(ngModel)]="direccion.adicional" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.direccion.codigoPostal" for="field_codigoPostal">Codigo Postal</label>
+            <input type="text" class="form-control" name="codigoPostal" id="field_codigoPostal"
+                [(ngModel)]="direccion.codigoPostal" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.direccion.comuna" for="field_comuna">Comuna</label>
+            <select class="form-control" id="field_comuna" name="comuna" [(ngModel)]="direccion.comunaId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="comunaOption.id" *ngFor="let comunaOption of comunas; trackBy: trackComunaById">{{comunaOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.direccion.tipo" for="field_tipo">Tipo</label>
+            <select class="form-control" id="field_tipo" name="tipo" [(ngModel)]="direccion.tipoId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

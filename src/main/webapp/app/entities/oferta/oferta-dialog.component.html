@@ -1,0 +1,91 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myOfertaLabel" jhiTranslate="truequepApp.oferta.home.createOrEditLabel">Create or edit a Oferta</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!oferta.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="oferta.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.oferta.generarOferta" for="field_generarOferta">Generar Oferta</label>
+            <input type="text" class="form-control" name="generarOferta" id="field_generarOferta"
+                [(ngModel)]="oferta.generarOferta" required/>
+            <div [hidden]="!(editForm.controls.generarOferta?.dirty && editForm.controls.generarOferta?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.generarOferta?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.oferta.tipoObjeto" for="field_tipoObjeto">Tipo Objeto</label>
+            <select class="form-control" name="tipoObjeto" [(ngModel)]="oferta.tipoObjeto" id="field_tipoObjeto" >
+                <option value="ALIMENTACIONBEBIDAS">{{'truequepApp.TipoObjeto.ALIMENTACIONBEBIDAS' | translate}}</option>
+                <option value="ARTEANTIGUEDADES">{{'truequepApp.TipoObjeto.ARTEANTIGUEDADES' | translate}}</option>
+                <option value="VEHICULOS">{{'truequepApp.TipoObjeto.VEHICULOS' | translate}}</option>
+                <option value="CASAHOGAR">{{'truequepApp.TipoObjeto.CASAHOGAR' | translate}}</option>
+                <option value="COLECCION">{{'truequepApp.TipoObjeto.COLECCION' | translate}}</option>
+                <option value="DEPORTES">{{'truequepApp.TipoObjeto.DEPORTES' | translate}}</option>
+                <option value="EDUCACION">{{'truequepApp.TipoObjeto.EDUCACION' | translate}}</option>
+                <option value="IMAGENSONIDO">{{'truequepApp.TipoObjeto.IMAGENSONIDO' | translate}}</option>
+                <option value="INFORMATICAELECTRONICA">{{'truequepApp.TipoObjeto.INFORMATICAELECTRONICA' | translate}}</option>
+                <option value="INMOBILIARIA">{{'truequepApp.TipoObjeto.INMOBILIARIA' | translate}}</option>
+                <option value="JOYERIA">{{'truequepApp.TipoObjeto.JOYERIA' | translate}}</option>
+                <option value="JUEGOSJUGUETES">{{'truequepApp.TipoObjeto.JUEGOSJUGUETES' | translate}}</option>
+                <option value="LIBROSREVISTASCOMICS">{{'truequepApp.TipoObjeto.LIBROSREVISTASCOMICS' | translate}}</option>
+                <option value="MUSICA">{{'truequepApp.TipoObjeto.MUSICA' | translate}}</option>
+                <option value="ROPACALZADO">{{'truequepApp.TipoObjeto.ROPACALZADO' | translate}}</option>
+                <option value="SALUDBELLEZA">{{'truequepApp.TipoObjeto.SALUDBELLEZA' | translate}}</option>
+                <option value="SERVICIOS">{{'truequepApp.TipoObjeto.SERVICIOS' | translate}}</option>
+                <option value="MANOOBRA">{{'truequepApp.TipoObjeto.MANOOBRA' | translate}}</option>
+                <option value="TELEFONIA">{{'truequepApp.TipoObjeto.TELEFONIA' | translate}}</option>
+                <option value="TIEMPOLIBRE">{{'truequepApp.TipoObjeto.TIEMPOLIBRE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.oferta.generaOferta" for="field_generaOferta">Genera Oferta</label>
+            <div>
+                <img [src]="'data:' + oferta.generaOfertaContentType + ';base64,' + oferta.generaOferta" style="max-height: 100px;" *ngIf="oferta.generaOferta" alt="oferta image"/>
+                <div *ngIf="oferta.generaOferta" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{oferta.generaOfertaContentType}}, {{byteSize(oferta.generaOferta)}}</span>
+                    <button type="button" (click)="clearInputImage('generaOferta', 'generaOfertaContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_generaOferta" (change)="setFileData($event, oferta, 'generaOferta', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="generaOferta" id="field_generaOferta"
+                [(ngModel)]="oferta.generaOferta" required/>
+            <input type="hidden" class="form-control" name="generaOfertaContentType" id="field_generaOfertaContentType"
+                [(ngModel)]="oferta.generaOfertaContentType" />
+            <div [hidden]="!(editForm.controls.generaOferta?.dirty && editForm.controls.generaOferta?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.generaOferta?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="truequepApp.oferta.cliente" for="field_cliente">Cliente</label>
+            <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="oferta.clienteId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

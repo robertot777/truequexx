@@ -1,0 +1,12 @@
+{
+    "truequepApp": {
+        "TipoValoracion" : {
+            "null": "",
+            "EXELENTE": "EXELENTE",
+            "BUENA": "BUENA",
+            "REGULAR": "REGULAR",
+            "POCOSERIO": "POCOSERIO",
+            "PESIMO": "PESIMO"
+        }
+    }
+}

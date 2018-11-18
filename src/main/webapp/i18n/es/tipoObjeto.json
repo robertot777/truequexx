@@ -1,0 +1,27 @@
+{
+    "truequepApp": {
+        "TipoObjeto" : {
+            "null": "",
+            "ALIMENTACIONBEBIDAS": "ALIMENTACIONBEBIDAS",
+            "ARTEANTIGUEDADES": "ARTEANTIGUEDADES",
+            "VEHICULOS": "VEHICULOS",
+            "CASAHOGAR": "CASAHOGAR",
+            "COLECCION": "COLECCION",
+            "DEPORTES": "DEPORTES",
+            "EDUCACION": "EDUCACION",
+            "IMAGENSONIDO": "IMAGENSONIDO",
+            "INFORMATICAELECTRONICA": "INFORMATICAELECTRONICA",
+            "INMOBILIARIA": "INMOBILIARIA",
+            "JOYERIA": "JOYERIA",
+            "JUEGOSJUGUETES": "JUEGOSJUGUETES",
+            "LIBROSREVISTASCOMICS": "LIBROSREVISTASCOMICS",
+            "MUSICA": "MUSICA",
+            "ROPACALZADO": "ROPACALZADO",
+            "SALUDBELLEZA": "SALUDBELLEZA",
+            "SERVICIOS": "SERVICIOS",
+            "MANOOBRA": "MANOOBRA",
+            "TELEFONIA": "TELEFONIA",
+            "TIEMPOLIBRE": "TIEMPOLIBRE"
+        }
+    }
+}
