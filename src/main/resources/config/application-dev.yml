@@ -43,10 +43,16 @@ spring:
             hibernate.generate_statistics: true
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
     mail:
-        host: localhost
-        port: 25
-        username:166828789482-v1oohug4drjgetaaec5dgbu5v32kfs4g.apps.googleusercontent.com
-        password:JftPhdkKSqyvCzB69g42hMJ2
+        host: smtp.gmail.com
+        port: 587
+        username: agendawebciisa@gmail.com
+        password:agendaweb123
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+        auth: true
+        starttls.enable: true
+        ssl.trust: smtp.gmail.com
         
     messages:
         cache-seconds: 1

@@ -35,10 +35,16 @@ spring:
             hibernate.generate_statistics: false
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
     mail:
-        host: localhost
-        port: 25
-        username:166828789482-v1oohug4drjgetaaec5dgbu5v32kfs4g.apps.googleusercontent.com
-        password:JftPhdkKSqyvCzB69g42hMJ2
+        host: smtp.gmail.com
+        port: 587
+        username: agendawebciisa@gmail.com
+        password: agendaweb123
+        protocol: smtp
+        properties.mail.smtp:
+        auth: true
+        starttls.enable: true
+        ssl.trust: smtp.gmail.com
+        
     thymeleaf:
         cache: true
 
@@ -92,8 +98,8 @@ jhipster:
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: truequep@localhost
-        base-url: http://my-server-url-to-change # Modify according to your server's URL
+        from: agendaWebCiisa@gmail.com # The default "from" address for e-mails
+        base-url:  https://truequed.herokuapp.com # Modify according to your server's URL
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         graphite:
