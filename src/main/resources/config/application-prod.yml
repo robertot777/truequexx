@@ -99,7 +99,7 @@ jhipster:
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: agendaWebCiisa@gmail.com # The default "from" address for e-mails
-        base-url:  https://truequed.herokuapp.com # Modify according to your server's URL
+        base-url:  https://truequep.herokuapp.com # Modify according to your server's URL
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         graphite:
